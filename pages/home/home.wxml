@@ -1,0 +1,20 @@
+<!--pages/home/home.wxml-->
+<view class="film">
+  <view class="film-type" wx:for="{{3}}" wx:key="index">
+    <view class="type-title">
+      <text>影院热映</text>
+      <navigator>更多 >></navigator>
+    </view>
+    
+    <scroll-view class="film-list" scroll-x>
+        <view class="film-item" wx:for="{{ 6 }}" wx:key="index">
+          <image class="film-img" src="/imgs/film.jpg"></image>
+          <view class="film-name">美丽人生</view>
+          <view class="film-star">
+            <image class="star-img" src="/imgs/star-open.png" wx:for="{{ 5 }}" wx:key="index"></image>
+            <text class="film-source">9.5</text>
+          </view>
+        </view>
+      </scroll-view>
+  </view>
+</view>
