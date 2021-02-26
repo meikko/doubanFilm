@@ -19,7 +19,7 @@
 }
 .type-title navigator{
   float: right;
-  color: #42db56;
+  color: #42bd56;
   padding-right: 16rpx;
 }
 

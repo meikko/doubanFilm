@@ -3,7 +3,7 @@
   <view class="film-type" wx:for="{{3}}" wx:key="index">
     <view class="type-title">
       <text>影院热映</text>
-      <navigator>更多 >></navigator>
+      <navigator url="/pages/list/list">更多 >></navigator>
     </view>
     
     <scroll-view class="film-list" scroll-x>
