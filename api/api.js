@@ -13,10 +13,10 @@ const showError = function(error){
     })
 }
 
-const loadHotFilms = function(Url, parms={}){
+const loadHotFilms = function(parms={}){
   return new Promise((resolve,reject) => {
     wx.request({
-      url: Url,
+      url: URLS.hotUrl,
       data:parms,
       success : resolve,
       fail: reject
@@ -30,10 +30,48 @@ const loadHotFilms = function(Url, parms={}){
       })
     }
   })
-
 }
 
+const loadLatestFilms = function(parms= {}){
+  return new Promise((resolve,reject) => {
+    wx.request({
+      url: URLS.latestUrl,
+      data:parms,
+      success : resolve,
+      fail: reject
+    })
+  }).then( res => {
+    if(res.statusCode == 200){
+      return res.data;
+    }else{
+      Promise.reject({
+        message:res.errMsg
+      })
+    }
+  })
+}
+
+const loadFreeFilms = function(parms= {}){
+  return new Promise((resolve,reject) => {
+    wx.request({
+      url: URLS.freeUrl,
+      data:parms,
+      success : resolve,
+      fail: reject
+    })
+  }).then( res => {
+    if(res.statusCode == 200){
+      return res.data;
+    }else{
+      Promise.reject({
+        message:res.errMsg
+      })
+    }
+  })
+}
 module.exports = {
   showError,
-  loadHotFilms
+  loadHotFilms,
+  loadLatestFilms,
+  loadFreeFilms
 }

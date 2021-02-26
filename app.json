@@ -2,7 +2,8 @@
   "pages": [
     "pages/home/home",
     "pages/list/list",    
-    "pages/about/about"
+    "pages/about/about",
+    "components/film-item/film-item"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -29,6 +30,6 @@
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
-    "film-item": "/components/film-itme/film-item"
+    "film-item": "/components/film-item/film-item"
   }
 }

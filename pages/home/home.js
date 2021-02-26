@@ -53,7 +53,7 @@ Page({
 
   loadHomeData(){
     api.loadHotFilms(
-      'https://m.douban.com/rexxar/api/v2/subject_collection/movie_showing/items',
+      // 'https://m.douban.com/rexxar/api/v2/subject_collection/movie_showing/items',
       {
       start:0,
       count:6
@@ -68,6 +68,41 @@ Page({
           'types[0]':type
         });
     }).catch(api.showError)
+
+    api.loadLatestFilms(
+      {
+        start:0,
+        count:6
+      }
+    ).then(data => {
+      console.log(data);
+        let type = {
+          title: data.subject_collection.name,
+          list: data.subject_collection_items
+        }
+        this.setData({
+          'types[1]':type
+        });
+    }).catch(api.showError)
+
+    api.loadFreeFilms(
+      {
+        start:0,
+        count:6
+      }
+    ).then(data => {
+      console.log(data);
+        let type = {
+          title: data.subject_collection.name,
+          list: data.subject_collection_items
+        }
+        this.setData({
+          'types[2]':type
+        });
+    }).catch(api.showError)
+
+
+
   },
   
 
