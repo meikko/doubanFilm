@@ -1,4 +1,8 @@
 // pages/home/home.js
+
+const api =  require('../../api/api');
+
+
 Page({
 
   /**
@@ -23,29 +27,49 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.loadHotFilms();
-
+    // this.loadHotFilms();
+    this.loadHomeData();
   },
 
-  loadHotFilms(){
-    wx.request({
-      url: 'https://m.douban.com/rexxar/api/v2/subject_collection/movie_showing/items',
-      data:{
-        start:0,
-        count:6
-      },
-      success: res => {
-        console.log(res)
+  // loadHotFilms(){
+  //   wx.request({
+  //     url: 'https://m.douban.com/rexxar/api/v2/subject_collection/movie_showing/items',
+  //     data:{
+  //       start:0,
+  //       count:6
+  //     },
+  //     success: res => {
+  //       console.log(res)
+  //       let type = {
+  //         title: res.data.subject_collection.name,
+  //         list:res.data.subject_collection_items
+  //       }
+  //       this.setData({
+  //         'types[0]':type
+  //       })
+  //     }
+  //   })
+  // },
+
+  loadHomeData(){
+    api.loadHotFilms(
+      'https://m.douban.com/rexxar/api/v2/subject_collection/movie_showing/items',
+      {
+      start:0,
+      count:6
+      }
+    ).then(data => {
+      console.log(data);
         let type = {
-          title: res.data.subject_collection.name,
-          list:res.data.subject_collection_items
+          title: data.subject_collection.name,
+          list: data.subject_collection_items
         }
         this.setData({
           'types[0]':type
-        })
-      }
-    })
+        });
+    }).catch(api.showError)
   },
+  
 
   /**
    * 生命周期函数--监听页面显示
