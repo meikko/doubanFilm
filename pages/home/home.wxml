@@ -1,8 +1,8 @@
 <!--pages/home/home.wxml-->
 <view class="film">
-  <view class="film-type" wx:for="{{3}}" wx:key="index">
+  <view class="film-type" wx:for="{{types}}" wx:for-item="type" wx:key="index">
     <view class="type-title">
-      <text>影院热映</text>
+      <text>{{type.title}}</text>
       <navigator url="/pages/list/list">更多 >></navigator>
     </view>
     
@@ -17,7 +17,7 @@
           </view>
         </view> 
       -->
-      <film-item class="film-item" wx:for="{{ 6 }}" wx:key="index" ></film-item>
+      <film-item class="film-item" wx:for="{{ type.list }}" film="{{item}}" wx:key="index" ></film-item>
       </scroll-view>
   </view>
 </view>
