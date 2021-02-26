@@ -1,0 +1,7 @@
+// 对评分对展示
+function starImgs(index, source){
+  return (index+1)*2 <= source ? '/imgs/star-open.png' : '/imgs/star-close.png'
+}
+module.exports = {
+  starImgs:starImgs
+}

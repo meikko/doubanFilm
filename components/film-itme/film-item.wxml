@@ -2,7 +2,9 @@
   <image class="film-img" src="{{film.cover.url}}"></image>
   <view class="film-name">{{film.title}}</view>
   <view class="film-star">
-    <image class="star-img" src="{{(index+1)*2 <= film.rating.value ? '/imgs/star-open.png' : '/imgs/star-close.png'}}" wx:for="{{ 5 }}" wx:key="index"></image>
+    <image class="star-img" src="{{ tools.starImgs(index, film.rating.value) }}" wx:for="{{ 5 }}" wx:key="index"></image>
     <text class="film-source">{{film.rating.value == null ? '暂无数据' : film.rating.value}}</text>
   </view>
 </view>
+
+<wxs src="../../utils/tools.wxs" module="tools"></wxs>
