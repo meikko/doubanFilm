@@ -1,35 +1,29 @@
-/* pages/home/home.wxss */
-.film{
-  width: 100%;
+/* pages/list/list.wxss */
+.list{
+  width:100%;
 }
-.film-type{
+.list-type{
   background-color: white;
   margin-bottom: 20rpx;
 }
-
 .type-title{
-  padding: 26rpx 0 ;
+  padding: 26rpx 0;
   font-size: 28rpx;
-  font-weight: bold;
   color: #333;
+  font-weight: bold;
 }
 .type-title text{
   border-left: 6rpx solid #42bd56;
   padding-left: 26rpx;
 }
-.type-title navigator{
-  float: right;
-  color: #42db56;
-  padding-right: 16rpx;
-}
-
 .film-list{
   width: 100%;
-  white-space: nowrap;
+  padding: 0 12rpx;
+  box-sizing: border-box;
 }
 .film-item{
   display: inline-block;
-  width: 200rpx;
+  width: 33.33%;
   padding: 0 12rpx;
+  box-sizing: border-box;
 }
-

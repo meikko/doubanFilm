@@ -1,0 +1,8 @@
+<view>
+  <image class="film-img" src="/imgs/film.jpg"></image>
+  <view class="film-name">美丽人生</view>
+  <view class="film-star">
+    <image class="star-img" src="/imgs/star-open.png" wx:for="{{ 5 }}" wx:key="index"></image>
+    <text class="film-source">9.5</text>
+  </view>
+</view>
