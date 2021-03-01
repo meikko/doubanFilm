@@ -10,7 +10,10 @@ Page({
     method:'',
     films:{},
     start:0,
-    count:12
+    count:12,
+    total:0,
+    showLoad:false,
+    showNoMore:false
   },
 
   /**
@@ -26,6 +29,9 @@ Page({
   },
 
   loadListData(){
+    this.setData({
+      showLoad : true
+    });
     api[this.data.method]({
       start:this.data.start,
       count:this.data.count
@@ -36,7 +42,9 @@ Page({
         list: list.concat(data.subject_collection_items)
       }
       this.setData({
-        films:films
+        films:films,
+        total:data.total,
+        showLoad : false
       });
     }).catch(api.showError);
   },
@@ -73,7 +81,11 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({
+      start:0,
+      films:{}
+    })
+    this.loadListData();
   },
 
   /**
@@ -81,7 +93,13 @@ Page({
    */
   onReachBottom: function () {
     this.data.start = this.data.start + this.data.count;
-    this.loadListData();
+    if(this.data.total > this.data.start){
+      this.loadListData();
+    } else {
+      this.setData({
+        showNoMore:true
+      })
+    }
     
   },
 

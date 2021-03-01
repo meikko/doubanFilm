@@ -8,4 +8,6 @@
       <film-item class="film-item" wx:for="{{films.list}}" film="{{item}}" wx:key="index"></film-item>
     </view>
   </view>
+  <include wx:if="{{showLoad}}" src="/templates/loading/loading.wxml"/>
+  <include wx:if="{{showNoMore}}" src="/templates/nomore/nomore.wxml"/>
 </view>
