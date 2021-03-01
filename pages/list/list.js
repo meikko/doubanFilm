@@ -1,25 +1,48 @@
 // pages/list/list.js
+const api = require('../../api/api.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    method:'',
+    films:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.data.method = options.method;
 
+    // 响应式的赋值
+    // this.setData({
+    //   method = options.method
+    // })
+  },
+
+  loadListData(){
+    api[this.data.method]({
+      start:0,
+      count:12
+    }).then(data => {
+      let films = {
+        title: data.subject_collection.name,
+        list: data.subject_collection_items
+      }
+      this.setData({
+        films:films
+      });
+    }).catch(api.showError);
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.loadListData();
   },
 
   /**

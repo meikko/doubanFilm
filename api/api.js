@@ -23,6 +23,7 @@ const loadHotFilms = function(parms={}){
     })
   }).then( res => {
     if(res.statusCode == 200){
+      res.data.method='loadHotFilms';
       return res.data;
     }else{
       Promise.reject({
@@ -42,6 +43,7 @@ const loadLatestFilms = function(parms= {}){
     })
   }).then( res => {
     if(res.statusCode == 200){
+      res.data.method='loadLatestFilms';
       return res.data;
     }else{
       Promise.reject({
@@ -61,6 +63,7 @@ const loadFreeFilms = function(parms= {}){
     })
   }).then( res => {
     if(res.statusCode == 200){
+      res.data.method='loadFreeFilms';
       return res.data;
     }else{
       Promise.reject({

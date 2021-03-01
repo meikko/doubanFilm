@@ -62,7 +62,8 @@ Page({
       console.log(data);
         let type = {
           title: data.subject_collection.name,
-          list: data.subject_collection_items
+          list: data.subject_collection_items,
+          method: data.method
         }
         this.setData({
           'types[0]':type
@@ -78,7 +79,8 @@ Page({
       console.log(data);
         let type = {
           title: data.subject_collection.name,
-          list: data.subject_collection_items
+          list: data.subject_collection_items,
+          method: data.method
         }
         this.setData({
           'types[1]':type
@@ -94,7 +96,8 @@ Page({
       console.log(data);
         let type = {
           title: data.subject_collection.name,
-          list: data.subject_collection_items
+          list: data.subject_collection_items,
+          method: data.method
         }
         this.setData({
           'types[2]':type

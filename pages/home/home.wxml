@@ -6,7 +6,7 @@
   <view class="film-type" wx:for="{{types}}" wx:for-item="type" wx:key="index">
     <view class="type-title">
       <text>{{type.title}}</text>
-      <navigator url="/pages/list/list">更多 >></navigator>
+      <navigator url="/pages/list/list?method={{type.method}}">更多 >></navigator>
     </view>
     
     <scroll-view class="film-list" scroll-x>
