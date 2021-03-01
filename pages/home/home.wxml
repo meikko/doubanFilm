@@ -1,5 +1,8 @@
 <!--pages/home/home.wxml-->
 <view class="film">
+  <include wx:if="{{types.length==0}}" src="/templates/loading/loading.wxml" />
+
+
   <view class="film-type" wx:for="{{types}}" wx:for-item="type" wx:key="index">
     <view class="type-title">
       <text>{{type.title}}</text>

@@ -2,3 +2,5 @@
 page{
   background-color: #efefef;
 }
+
+@import "/templates/loading/loading.wxss"
