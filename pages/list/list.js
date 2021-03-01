@@ -8,7 +8,9 @@ Page({
    */
   data: {
     method:'',
-    films:{}
+    films:{},
+    start:0,
+    count:12
   },
 
   /**
@@ -25,12 +27,13 @@ Page({
 
   loadListData(){
     api[this.data.method]({
-      start:0,
-      count:12
+      start:this.data.start,
+      count:this.data.count
     }).then(data => {
+      let list = this.data.films.list || [];
       let films = {
         title: data.subject_collection.name,
-        list: data.subject_collection_items
+        list: list.concat(data.subject_collection_items)
       }
       this.setData({
         films:films
@@ -77,7 +80,9 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.data.start = this.data.start + this.data.count;
+    this.loadListData();
+    
   },
 
   /**
