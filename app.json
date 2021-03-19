@@ -1,9 +1,11 @@
 {
   "pages": [
+    "pages/detail/detail",
     "pages/home/home",
     "pages/list/list",
     "pages/about/about",
     "components/film-item/film-item"
+   
   ],
   "window": {
     "backgroundTextStyle": "light",
